@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ICT Question Bank</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      display: flex;
+    }
+
+    /* Loader */
+    #loader-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: #000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+
+    #loader-logo {
+      width: 200px;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: scale(0.9); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 220px;
+      height: 100vh;
+      background-color: #faf6fc;
+      padding-top: 60px;
+      transition: width 0.3s;
+      overflow: hidden;
+      font-family: Calibri, 'Trebuchet MS', sans-serif;
+    }
+
+    .sidebar.collapsed {
+      width: 60px;
+    }
+
+    .sidebar a {
+      display: flex;
+      align-items: center;
+      padding: 15px 20px;
+      color: #222121;
+      text-decoration: none;
+      border-bottom: 1px solid #ddd;
+      white-space: nowrap;
+    }
+
+    .sidebar a i {
+      font-size: 20px;
+      width: 30px;
+      min-width: 30px;
+      text-align: center;
+    }
+
+    .sidebar.collapsed a span {
+      display: none;
+    }
+
+    .sidebar a:hover {
+      background-color: #c994f2;
+    }
+
+    .sidebar a:hover i {
+      transform: scale(1.2);
+      color: white;
+    }
+
+    .topbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 60px;
+      background-color: #2196f3;
+      color: white;
+      display: flex;
+      align-items: center;
+      padding: 0 20px;
+      box-sizing: border-box;
+      z-index: 1000;
+    }
+
+    .toggle-btn {
+      font-size: 24px;
+      cursor: pointer;
+      margin-right: 20px;
+    }
+
+    .content {
+      margin-left: 220px;
+      padding: 80px 40px 20px;
+      transition: margin-left 0.3s;
+      flex: 1;
+      background-image: url('https://images.prismic.io//intuzwebsite/d394de11-2b7f-4a72-a3e0-c876f7356a40_Main.png?w=1200&q=80&auto=format,compress&fm=png8');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+      font-family: 'Poppins', sans-serif;
+      min-height: 100vh;
+      color: white;
+    }
+
+    .sidebar.collapsed ~ .content {
+      margin-left: 60px;
+    }
+
+    .welcome-heading,
+    .welcome-description {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    .fade-in {
+      animation: fadeSlideIn 1s ease-out forwards;
+    }
+
+    .welcome-heading {
+      font-size: 36px;
+      font-weight: bold;
+      text-transform: uppercase;
+      line-height: 1.4;
+    }
+
+    .welcome-heading .main {
+      color: white;
+      letter-spacing: 1px;
+    }
+
+    .welcome-heading .highlight {
+      color: #ff6600;
+    }
+
+    .welcome-description {
+      margin-top: 20px;
+      font-size: 20px;
+      line-height: 1.6;
+      max-width: 600px;
+    }
+
+    @keyframes fadeSlideIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Loader -->
+<div id="loader-screen">
+  <img id="loader-logo" src="C:/Users/ASUS/Desktop/paper downlod/img baner/20250410_125340.jpg" alt="Loading..." />
+</div>
+
+<!-- Topbar -->
+<div class="topbar">
+  <i class="fas fa-bars toggle-btn" onclick="toggleSidebar()"></i>
+  <h3>ICT Question Bank</h3>
+</div>
+
+<!-- Sidebar -->
+<div class="sidebar" id="sidebar">
+  <a href="#"><i class="fas fa-home"></i><span>Home</span></a>
+  <a href="file:///C:/Users/ASUS/Desktop/ict%20web/page/!DOCTYPE%20html3.html"><i class="fas fa-file-alt"></i><span>Past Papers</span></a>
+  <a href="#"><i class="fas fa-copy"></i><span>Model Papers</span></a>
+  <a href="file:///C:/Users/ASUS/Desktop/ict%20web/page/!DOCTYPE%20html3%20-ms.html"><i class="fas fa-check-circle"></i><span>Answers & Marking</span></a>
+  <a href="file:///C:/Users/ASUS/Desktop/ict%20web/page/blog.html"><i class="fas fa-blog"></i><span>Blog / Articles</span></a>
+  <a href="file:///C:/Users/ASUS/Desktop/ict%20web/page/mcqintro.html"><i class="fas fa-tasks"></i><span>Mcq Test</span></a>
+  <a href="file:///C:/Users/ASUS/Desktop/ict%20web/page/index.html" onclick="clearLoaderFlag()"><i class="fas fa-sign-out-alt"></i><span>Logout</span></a>
+</div>
+
+<!-- Content -->
+<div class="content">
+  <div class="welcome-heading" id="welcome-heading">
+    <div class="main">Welcome to The<br>
+      <span class="highlight">ICT Question Bank</span>
+    </div>
+  </div>
+  <div class="welcome-description" id="welcome-description">
+    Discover a powerful collection of past paper questions, model papers, and topic-wise exercises designed especially for A/L ICT students.
+    <br><br>
+    ✅ GCE A/L ICT Past Papers & Answers<br>
+    ✅ Model Papers<br><br>
+    Start your journey towards ICT mastery today!
+  </div>
+</div>
+
+<!-- Script -->
+<script>
+  function toggleSidebar() {
+    document.getElementById('sidebar').classList.toggle('collapsed');
+  }
+
+  function clearLoaderFlag() {
+    sessionStorage.removeItem("alreadyLoaded");
+  }
+
+  window.onload = function () {
+    const alreadyLoaded = sessionStorage.getItem("alreadyLoaded");
+
+    if (alreadyLoaded === "true") {
+      // Already visited in this session
+      document.getElementById("loader-screen").style.display = "none";
+      document.getElementById("welcome-heading").classList.add("fade-in");
+      document.getElementById("welcome-description").classList.add("fade-in");
+    } else {
+      // First visit in this session
+      setTimeout(() => {
+        document.getElementById("loader-screen").style.display = "none";
+        document.getElementById("welcome-heading").classList.add("fade-in");
+        setTimeout(() => {
+          document.getElementById("welcome-description").classList.add("fade-in");
+        }, 200);
+        sessionStorage.setItem("alreadyLoaded", "true");
+      }, 2000);
+    }
+  };
+</script>
+
+</body>
+</html>

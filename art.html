@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>A/L ICT Theory Tips</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-image: url(https://img.freepik.com/vektoren-kostenlos/hintergrund-der-digitalen-technologie-von-network-mesh-wire_1017-27428.jpg?t=st=1745731940~exp=1745735540~hmac=4d999a1be1160ab0f9e0d97aabe44703b1fe8589992d005f9424c65454b6c134&w=1380);
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+      font-family: 'Poppins', sans-serif;
+      min-height: 10vh;
+      color: #333;
+      line-height: 1.8;
+      padding: 20px;
+    }
+
+    .main-container {
+      display: flex;
+      flex-direction: column;
+      gap: 50px;
+    }
+
+    /* First Section */
+    .container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 50px;
+    }
+
+    .animated-title {
+      font-size: 3rem;
+      color: #1a202c;
+      margin-bottom: 20px;
+      opacity: 0;
+      transform: translateX(-50px);
+      animation: slideFadeLeft 1.5s ease forwards;
+      animation-delay: 0.2s;
+    }
+
+    
+    .animated-title span {
+      color: #f97316;
+      font-weight: 700;
+    }
+
+    @keyframes slideFadeLeft {
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    /* Animation for Image */
+    .intro-image {
+      opacity: 0;
+      transform: scale(0.8);
+      animation: zoomFade 1.5s ease forwards;
+      animation-delay: 0.6s;
+    }
+
+    @keyframes zoomFade {
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    .animated-paragraph {
+      font-size: 1.4rem;
+      color: #4a5568;
+      margin-top: 10px;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeSlideUp 1.5s ease forwards;
+      animation-delay: 0.6s;
+    }
+
+    @keyframes fadeSlideUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .intro-text h1 {
+      font-size: 3rem;
+      color: #1a202c;
+      margin-bottom: 20px;
+    }
+
+    .intro-text h1 span {
+      color: #f97316;
+      font-weight: 700;
+    }
+
+    .intro-text p {
+      font-size: 1.4rem;
+      color: #4a5568;
+      margin-top: 10px;
+    }
+
+    .intro-image img {
+      width: 85%;
+      transition: transform 0.5s;
+    }
+
+    .intro-image img:hover {
+      transform: scale(1.05);
+    }
+
+    /* Second Section */
+    .article-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 50px;
+    }
+
+    .article-box {
+      background-color: #fafbfc;
+      padding: 30px
+    }
+
+    .article-box h2 {
+      font-size: 2rem;
+      color: #1a202c;
+      margin-bottom: 20px;
+    }
+
+    .article-box ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .article-box ul li {
+      position: relative;
+      padding-left: 30px;
+      margin-bottom: 12px;
+      font-size: 1.1rem;
+      color: #4a5568;
+    }
+
+    .article-box ul li::before {
+      content: "✔️";
+      position: absolute;
+      left: 0;
+      color: #f97316;
+      font-size: 1.2rem;
+    }
+
+    .article-image img {
+      width: 75%;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .container, .article-container {
+        grid-template-columns: 1fr;
+      }
+      .intro-text h1 {
+        font-size: 2.5rem;
+      }
+      .article-image img {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="main-container">
+    <div class="container">
+      <div class="intro-text">
+        <h1 class="animated-title">🎯 <span>How to Tackle</span> <br> A/L ICT Theory Questions Effectively</h1>
+        
+        <p class="animated-paragraph">
+          Facing theory questions in A/L ICT can be challenging if you don’t have the right strategy. Unlike MCQs or practicals, theory questions demand deep understanding, structured answers, and good time management. Here are some proven tips to approach them smartly.
+        </p>
+      </div>
+
+      <div class="intro-image">
+        <img src="https://i.pinimg.com/1200x/8a/54/9f/8a549f979920abec07f1edd3ef68a368.jpg" alt="ICT Theory Tips">
+      </div>
+    </div>
+ 
+    <div class="article-container">
+      <div class="article-box">
+        <h2 class="animated-paragraph">📘 1. Understand the Syllabus</h2>
+        <ul class="animated-paragraph">
+          <li>Computer Fundamentals</li>
+          <li>Number System</li>
+          <li>Logic Gate</li>
+          <li>Networking</li>
+          <li>Database</li>
+          <li>Python</li>
+          <li>HTML</li>
+        </ul>
+      </div>
+
+      <div class="article-image intro-image">
+        <img src="https://www.careerpower.in/blog/wp-content/uploads/sites/2/2024/09/16153203/NMMS-Syllabus.jpg" alt="Understand the Syllabus">
+      </div>
+    </div>
+
+    
+    <div class="article-container">
+      <div class="article-box">
+        <h2 class="animated-paragraph">📚 2. Practice Past Papers</h2>
+        <ul class="animated-paragraph">
+          <li>Identify question patterns</li>
+          <li>Understand how marking works</li>
+          <li>Improve your writing speed</li>
+          <li>Get familiar with expected answer structures</li>
+          <li>Keep a notebook with frequently asked questions and practice writing answers in your own words</li>
+        </ul>
+      </div>
+
+      <div class="article-image intro-image">
+        <img src="https://lawschooltoolbox.com/wp-content/uploads/2019/01/shutterstock_275972699-1-768x512.jpg" alt="Practice Past Papers">
+      </div>
+    </div>
+
+    <div class="article-container">
+      <div class="article-box">
+        <h2 class="animated-paragraph">🧩 3. Structure Your Answers</h2>
+        <ul class="animated-paragraph">
+          <li>Start with a short definition or explanation</li>
+          <li>Use bullet points or numbered lists where possible</li>
+          <li>Underline or bold key terms</li>
+          <li>Include diagrams or examples when relevant</li>
+        </ul>
+      </div>
+
+      <div class="article-image intro-image">
+        <img src="https://i.pinimg.com/1200x/c7/24/39/c72439a0f7d70e016f8277abc9355971.jpg" alt="Structure Your Answers">
+      </div>
+    </div>
+
+    <div class="article-container">
+      <div class="article-box">
+        <h2 class="animated-paragraph">⏱️ 4. Manage Your Time</h2>
+        <ul class="animated-paragraph">
+          <li>Allocate specific time slots per question</li>
+          <li>Don’t spend too much time on one answer</li>
+          <li>Leave time to review at the end</li>
+          <li>Practice answering full papers under timed conditions</li>
+        </ul>
+      </div>
+
+      <div class="article-image intro-image">
+        <img src="https://i.pinimg.com/1200x/8b/49/2f/8b492f3e9273c8ec30f6c2f0e78748a8.jpg" alt="Manage Your Time">
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>

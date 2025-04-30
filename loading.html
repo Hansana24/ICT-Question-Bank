@@ -1,0 +1,43 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ICT Question Bank - Loading</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: #000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    #logo {
+      width: 220px;
+      height: auto;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: scale(0.9); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Your Logo -->
+  <img id="logo" src="C:\Users\ASUS\Desktop\paper downlod\img baner\20250410_125340.jpg" alt="ICT Logo" />
+
+  <script>
+    // Redirect to home page after 3 seconds
+    setTimeout(() => {
+      window.location.href ="file:///C:/Users/ASUS/Desktop/ict%20web/page/firstpage3.html"; // your real homepage
+    }, 3000);
+  </script>
+
+</body>
+</html>

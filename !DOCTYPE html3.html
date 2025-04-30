@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Select Your Medium</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      height: 100vh;
+      background: url('https://i.pinimg.com/1200x/b5/a9/27/b5a9277e2d38867cc237087c4beef9aa.jpg') no-repeat center center fixed;
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .box {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 40px 30px;
+      width: 350px;
+      text-align: center;
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+      color: #ffffff;
+    }
+
+    .box h2 {
+      font-weight: 500;
+      margin-bottom: 25px;
+    }
+
+    label {
+      font-size: 16px;
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    select, input[type="submit"] {
+      width: 100%;
+      padding: 12px;
+      margin-top: 10px;
+      margin-bottom: 20px;
+      border: none;
+      border-radius: 8px;
+      font-size: 15px;
+    }
+
+    select {
+      background: rgba(255, 255, 255, 0.9);
+      color: #333;
+    }
+
+    input[type="submit"] {
+      background-color: #00c896;
+      color: white;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #00aa7c;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="box">
+    <h2>Select Your Medium</h2>
+    <form onsubmit="return redirectToPage(this)">
+      <label for="medium">Choose Medium:</label>
+      <select name="medium" id="medium" required>
+        <option value="">What is Your Medium</option>
+        <option value="sinhala">Sinhala Medium</option>
+        <option value="english">English Medium</option>
+      </select>
+      <input type="submit" value="Continue">
+    </form>
+  </div>
+
+  <script>
+    function redirectToPage(form) {
+      var medium = form.medium.value;
+      if (medium === "sinhala") {
+        window.location.href = "file:///C:/Users/ASUS/Desktop/ict%20web/ICT_PastPapers_Styled%20(1)/sinhalapaper.html";
+      } else if (medium === "english") {
+        window.location.href = "file:///C:/Users/ASUS/Desktop/ict%20web/ICT_PastPapers_Styled%20(2)/englishpaper.html";
+      }
+      return false;
+    }
+  </script>
+
+</body>
+</html>

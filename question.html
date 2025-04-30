@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ICT Question Bank - MCQ Quiz</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+                  url('https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&w=1500&q=80') no-repeat center center fixed;
+      background-size: cover;
+      min-height: 100vh;
+      padding: 40px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #fff;
+      margin-bottom: 30px;
+      font-size: 3rem;
+      letter-spacing: 1px;
+    }
+
+    .question {
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(8px);
+      padding: 25px;
+      margin-bottom: 25px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      transition: 0.3s;
+    }
+
+    .question p {
+      font-weight: bold;
+      font-size: 20px;
+      margin-bottom: 15px;
+      color: #2c3e50;
+    }
+
+    .options label {
+      display: block;
+      background: #ecf0f1;
+      margin-bottom: 12px;
+      padding: 12px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 1.1rem;
+      transition: 0.3s;
+    }
+
+    button {
+      display: block;
+      width: 220px;
+      margin: 40px auto 0;
+      padding: 14px;
+      background-color: #e67e22;
+      color: white;
+      font-size: 20px;
+      font-weight: bold;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.3s;
+    }
+
+    
+
+    #score {
+      text-align: center;
+      font-size: 26px;
+      font-weight: bold;
+      margin-top: 30px;
+      color: #ffffff;
+      background: rgba(0, 0, 0, 0.5);
+      display: inline-block;
+      padding: 10px 20px;
+      border-radius: 10px;
+    }
+
+    .correct-answer {
+      background-color: #d4edda !important;
+      border-left: 5px solid #28a745;
+    }
+
+    .wrong-answer {
+      background-color: #f8d7da !important;
+      border-left: 5px solid #dc3545;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .question {
+        padding: 20px;
+      }
+      h1 {
+        font-size: 2.5rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>ICT MCQ Test</h1>
+
+  <form id="quizForm" style="max-width: 750px; margin: auto;">
+    <div class="question" id="q1">
+      <p>1. What does CPU stand for?</p>
+      <div class="options">
+        <label><input type="radio" name="q1" value="a"> Central Processing Unit</label>
+        <label><input type="radio" name="q1" value="b"> Computer Personal Unit</label>
+        <label><input type="radio" name="q1" value="c"> Central Performance Utility</label>
+        <label><input type="radio" name="q1" value="d"> Control Processing Unit</label>
+      </div>
+    </div>
+
+    <div class="question" id="q2">
+      <p>2. Which device is used to store data permanently?</p>
+      <div class="options">
+        <label><input type="radio" name="q2" value="a"> RAM</label>
+        <label><input type="radio" name="q2" value="b"> ROM</label>
+        <label><input type="radio" name="q2" value="c"> CPU</label>
+        <label><input type="radio" name="q2" value="d"> ALU</label>
+      </div>
+    </div>
+
+    <div class="question" id="q3">
+      <p>3. What is the brain of the computer?</p>
+      <div class="options">
+        <label><input type="radio" name="q3" value="a"> Monitor</label>
+        <label><input type="radio" name="q3" value="b"> Keyboard</label>
+        <label><input type="radio" name="q3" value="c"> CPU</label>
+        <label><input type="radio" name="q3" value="d"> Mouse</label>
+      </div>
+    </div>
+
+    <button type="submit">Submit</button>
+  </form>
+
+  <div id="score"></div>
+
+  <script>
+    const correctAnswers = {
+      q1: 'a',
+      q2: 'b',
+      q3: 'c'
+    };
+
+    document.getElementById('quizForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      let score = 0;
+
+      for (let questionId in correctAnswers) {
+        const selectedOption = document.querySelector(`input[name="${questionId}"]:checked`);
+        const questionDiv = document.getElementById(questionId);
+        const options = questionDiv.querySelectorAll('label');
+
+        options.forEach(label => {
+          const input = label.querySelector('input');
+          input.disabled = true;
+          label.classList.remove('correct-answer', 'wrong-answer');
+        });
+
+        if (selectedOption) {
+          if (selectedOption.value === correctAnswers[questionId]) {
+            score++;
+            selectedOption.parentElement.classList.add('correct-answer');
+          } else {
+            selectedOption.parentElement.classList.add('wrong-answer');
+          }
+        }
+
+        options.forEach(label => {
+          const input = label.querySelector('input');
+          if (input.value === correctAnswers[questionId]) {
+            label.classList.add('correct-answer');
+          }
+        });
+      }
+
+      document.getElementById('score').textContent = `Your Score: ${score} / ${Object.keys(correctAnswers).length}`;
+    });
+
+    const allRadios = document.querySelectorAll('input[type="radio"]');
+    allRadios.forEach(radio => {
+      radio.addEventListener('change', function() {
+        const name = this.name;
+        const radiosInGroup = document.querySelectorAll(`input[name="${name}"]`);
+        radiosInGroup.forEach(r => r.disabled = true); 
+      });
+    });
+  </script>
+
+</body>
+</html>
